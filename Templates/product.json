@@ -1,0 +1,32 @@
+{
+    "sections": [
+      {
+        "type": "product-page",
+        "settings": {
+          "product-title": "Your Product Title",
+          "product-image": "your-product-image.jpg",
+          "product-description": "<p>Your product description here...</p>",
+          "product": "your-product-handle"
+        },
+        "blocks": [
+          {
+            "type": "product-variation",
+            "id": "block1", 
+            "settings": {
+              "color": "Red",
+              "size": "Medium"
+            }
+          },
+          {
+            "type": "product-variation",
+            "id": "block2",
+            "settings": {
+              "color": "Blue",
+              "size": "Large"
+            }
+          }
+        ],
+        "block_order": ["block1", "block2"]
+      }
+    ]
+  }

@@ -1,0 +1,37 @@
+{% schema %}
+{
+  "name": "Variant Selector",
+  "settings": [
+    {
+      "type": "select",
+      "label": "Color",
+      "id": "color",
+      "options": ["Red", "Blue", "Green"]
+    },
+    {
+      "type": "select",
+      "label": "Size",
+      "id": "size",
+      "options": ["Small", "Medium", "Large"]
+    }
+  ]
+}
+{% endschema %}
+
+{% for block in section.blocks %}
+  <div>
+    <label for="{{ block.id }}-color">Color:</label>
+    <select id="{{ block.id }}-color">
+      {% for option in block.settings.color.options %}
+        <option value="{{ option }}" {% if block.settings.color == option %}selected{% endif %}>{{ option }}</option>
+      {% endfor %}
+    </select>
+
+    <label for="{{ block.id }}-size">Size:</label>
+    <select id="{{ block.id }}-size">
+      {% for option in block.settings.size.options %}
+        <option value="{{ option }}" {% if block.settings.size == option %}selected{% endif %}>{{ option }}</option>
+      {% endfor %}
+    </select>
+  </div>
+{% endfor %}

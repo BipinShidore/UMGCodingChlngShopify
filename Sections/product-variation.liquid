@@ -1,0 +1,30 @@
+{% schema %}
+{
+  "name": "Product Variation",
+  "settings": [],
+  "presets": [
+    {
+      "category": "Products",
+      "name": "Product Variation",
+      "settings": {
+        "color": "Red",
+        "size": "Medium"
+      }
+    }
+  ],
+  "blocks": [
+    {
+      "type": "variant-selector",
+      "name": "Variant Selector"
+    }
+  ]
+}
+{% endschema %}
+
+{% for block in section.blocks %}
+  <div>
+    <p>Selected Color: {{ block.settings.color }}</p>
+    <p>Selected Size: {{ block.settings.size }}</p>
+    <!-- Add more HTML and Liquid for displaying variations -->
+  </div>
+{% endfor %}

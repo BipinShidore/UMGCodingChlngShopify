@@ -1,0 +1,63 @@
+{% schema %}
+{
+  "name": "Product Page",
+  "settings": [
+    {
+      "type": "text",
+      "label": "Product Title",
+      "id": "product-title"
+    },
+    {
+      "type": "image_picker",
+      "label": "Product Image",
+      "id": "product-image"
+    },
+    {
+      "type": "richtext",
+      "label": "Product Description",
+      "id": "product-description"
+    },
+    {
+      "type": "product",
+      "label": "Product",
+      "id": "product",
+      "info": "Select a product to display on this page"
+    }
+    // Add more settings for metafields, variations, etc.
+  ],
+  "blocks": [
+    {
+      "type": "product-variation",
+      "name": "Product Variation",
+      "settings": [
+        {
+          "type": "select",
+          "label": "Color",
+          "id": "color",
+          "options": ["Red", "Blue", "Green"]
+        },
+        {
+          "type": "select",
+          "label": "Size",
+          "id": "size",
+          "options": ["Small", "Medium", "Large"]
+        }
+      ]
+    }
+    // Add more blocks as needed
+  ]
+}
+{% endschema %}
+
+<div>
+  <h2>{{ section.settings.product-title }}</h2>
+  <img src="{{ section.settings.product-image | img_url: 'medium' }}" alt="{{ section.settings.product-title }}">
+  {{ section.settings.product-description | rich_text }}
+  
+  {% include 'product-variation' %}
+  
+  <button class="add-to-cart-btn" data-product-id="{{ product.id }}" data-variant-id="{{ product.selected_variant.id }}">
+    Add to Cart
+  </button>
+  <!-- Add more HTML and Liquid for variations, description, etc. -->
+</div>

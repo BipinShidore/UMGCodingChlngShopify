@@ -1,0 +1,20 @@
+
+<div class="cart-page">
+  <h1>Your Cart</h1>
+{%- for item in cart.items -%}
+  <div class="cart-item" data-variant-id="{{ item.variant.id }}">
+    <p>{{ item.title }}</p>
+    <p>Price: {{ item.price | money }}</p>
+    <p>Quantity: {{ item.quantity }}</p>
+    <button class="increase-quantity">Increase Quantity</button>
+    <button class="decrease-quantity">Decrease Quantity</button>
+    <button class="remove-item">Remove Item</button>
+  </div>
+{%- endfor -%}
+
+  {%- comment -%}
+    End of cart content
+  {%- endcomment -%}
+
+  <script src="{{ 'product-page.js' | asset_url | script_tag }}"></script>
+</div>
